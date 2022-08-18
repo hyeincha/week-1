@@ -1,1 +1,9 @@
-// 여기가 칠드런 받아오는곳인가요?
+// function Layout() {
+//     return (
+//         <div>
+//             {props.children}
+//         </div>
+//     )
+// }
+
+// export default Layout;
