@@ -1,11 +1,26 @@
 .form {
-    display: flex;
-    margin: 10px auto;
-    justify-content: space-between;
-    background-color: lightyellow;
-    padding: 20px;
+  display: flex;
+  margin: 10px auto;
+  justify-content: space-evenly;
+  background-color: lightyellow;
+  padding: 20px;
+  align-items: center;
 }
 
 .form > label {
-    font-weight: bold;
+  font-weight: bold;
+}
+
+.form > input {
+  width: 200px;
+  height: 20px;
+}
+
+.form > button {
+  width: 90px;
+  height: 25px;
+  background-color: green;
+  color: white;
+  border-radius: 7px;
+  font-weight: bold;
 }
