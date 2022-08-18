@@ -1,5 +1,4 @@
 import Form from "../form/Form";
-import Todo from "../todo/Todo";
 import { useState } from "react";
 import List from "../list/List";
 
@@ -7,27 +6,30 @@ function TodoList() {
   const [todos, setTodos] = useState([
     {
       id: 0,
-      title: "리액트",
-      body: "리액트 공부",
+      title: "리액트 공부",
+      body: "리액트 기초를 공부합시다.",
       isDone: false,
     },
     {
       id: 1,
-      title: "sdfwefw",
-      body: "wefwefwef",
+      title: "리액트 공부",
+      body: "리액트 기초를 공부합시다.",
       isDone: true,
     },
   ]);
-  console.log(todos);
+
+  function Finish(changeTodo) {
+    const todos = [...todos].filter((item) => item.id !== changeTodo.id);
+    changeTodo.isDone = !changeTodo.isDone;
+    setTodos([...todos, changeTodo]);
+  }
+
   return (
     <>
       <Form todos={todos} setTodos={setTodos} />
-      {/* <Todo todos={todos} setTodos={setTodos} /> */}
       <List todos={todos} setTodos={setTodos} />
     </>
   );
 }
 
 export default TodoList;
-
-// 리스트를넣자??

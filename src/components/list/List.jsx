@@ -2,33 +2,55 @@ import "./style.css";
 import Todo from "../todo/Todo";
 
 const List = ({ todos, setTodos }) => {
+  function Finish(id) {
+    const newTodo = todos.map((newTodo) =>
+      newTodo.id === id ? { ...newTodo, isDone: !newTodo.isDone } : newTodo
+    );
+    setTodos(newTodo);
+  }
+
   return (
-    <div className="list">
+    <div>
       <div>
         <h2>⏳ in progress...</h2>
-        {todos.map((todo) => {
-          if (todo.isDone === false) {
-            return <Todo key={todo.id} todo={todo} setTodos={setTodos} />;
-          } else {
-            return null;
-          }
-        })}
+        <div className="list_1">
+          {todos.map((todo) => {
+            if (todo.isDone === false) {
+              return (
+                <Todo
+                  key={todo.id}
+                  todo={todo}
+                  setTodos={setTodos}
+                  Finish={Finish}
+                />
+              );
+            } else {
+              return null;
+            }
+          })}
+        </div>
       </div>
       <div>
         <h2>✅ DONE!</h2>
-        {todos.map((todo) => {
-          if (todo.isDone) {
-            return <Todo key={todo.id} todo={todo} setTodos={setTodos} />;
-          } else {
-            return null;
-          }
-        })}
+        <div className="list_2">
+          {todos.map((todo) => {
+            if (todo.isDone) {
+              return (
+                <Todo
+                  key={todo.id}
+                  todo={todo}
+                  setTodos={setTodos}
+                  Finish={Finish}
+                />
+              );
+            } else {
+              return null;
+            }
+          })}
+        </div>
       </div>
     </div>
   );
 };
 
 export default List;
-
-//리스트 안에 투두 넣기 칠드런으로 !!
-//맵을 돌려서 조건문 주면 됨
